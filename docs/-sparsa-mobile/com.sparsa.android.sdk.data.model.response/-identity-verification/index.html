@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>IdentityVerification</title>
+    <link href="../../../images/logo-icon.svg" rel="icon" type="image/svg">
+    <script>var pathToRoot = "../../../";</script>
+    <script>document.documentElement.classList.replace("no-js","js");</script>
+    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="https://unpkg.com/kotlin-playground@1/dist/playground.min.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/sourceset_dependencies.js" async="async"></script>
+<link href="../../../styles/style.css" rel="Stylesheet">
+<link href="../../../styles/main.css" rel="Stylesheet">
+<link href="../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../styles/logo-styles.css" rel="Stylesheet">
+<link href="../../../styles/font-jb-sans-auto.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../scripts/clipboard.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/navigation-loader.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/platform-content-handler.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/main.js" defer="defer"></script>
+<script type="text/javascript" src="../../../scripts/prism.js" async="async"></script>
+<script type="text/javascript" src="../../../scripts/symbol-parameters-wrapper_deferred.js" defer="defer"></script>
+</head>
+<body>
+    <div class="root">
+<nav class="navigation" id="navigation-wrapper">
+    <div class="navigation--inner">
+        <div class="navigation-title">
+            <button class="menu-toggle" id="menu-toggle" type="button">toggle menu</button>
+            <div class="library-name">
+                    <a class="library-name--link" href="../../../index.html">
+                            SparsaMobile
+                    </a>
+            </div>
+            <div class="library-version">
+            </div>
+        </div>
+        <div class="filter-section" id="filter-section">
+                <button class="platform-tag platform-selector jvm-like" data-active="" data-filter=":sparsa_mobile_sdk:dokkaHtml/release">androidJvm</button>
+        </div>
+    </div>
+    <div class="navigation-controls">
+        <button class="navigation-controls--btn navigation-controls--theme" id="theme-toggle-button" type="button">switch theme</button>
+        <div class="navigation-controls--btn navigation-controls--search" id="searchBar" role="button">search in API</div>
+    </div>
+</nav>
+        <div id="container">
+            <div class="sidebar" id="leftColumn">
+                <div class="sidebar--inner" id="sideMenu"></div>
+            </div>
+            <div id="main">
+<div class="main-content" data-page-type="classlike" id="content" pageIds="SparsaMobile::com.sparsa.android.sdk.data.model.response/IdentityVerification///PointingToDeclaration//-704981952">
+  <div class="breadcrumbs"><a href="../../../index.html">SparsaMobile</a><span class="delimiter">/</span><a href="../index.html">com.sparsa.android.sdk.data.model.response</a><span class="delimiter">/</span><span class="current">IdentityVerification</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Identity</span><wbr></wbr><span><span>Verification</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sparsa_mobile_sdk:dokkaHtml/release"><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><span data-unresolved-link="kotlinx.serialization/Serializable///PointingToDeclaration/"><span class="token annotation builtin">Serializable</span></span></div></div><span class="token keyword">data </span><span class="token keyword">class </span><a href="index.html">IdentityVerification</a><span class="token punctuation">(</span><span class="parameters "><span class="parameter "><span class="token keyword">val </span>id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>organizationId<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>identityVerificationIdentifier<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>createdDate<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>updatedDate<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>deletedDate<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter "><span class="token keyword">val </span>identityVerifierConfigs<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../-identity-verifier-config-model/index.html">IdentityVerifierConfigModel</a><span class="token operator">&gt;</span><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button><button class="section-tab" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION,EXTENSION_PROPERTY,EXTENSION_FUNCTION">Members &amp; Extensions</button></div>
+    <div class="tabs-section-body">
+      <div data-togglable="CONSTRUCTOR">
+        <h2 class="">Constructors</h2>
+        <div class="table"><a data-name="-1665541573%2FConstructors%2F-704981952" anchor-label="IdentityVerification" id="-1665541573%2FConstructors%2F-704981952" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release"></a>
+          <div class="table-row" data-togglable="CONSTRUCTOR" data-filterable-current=":sparsa_mobile_sdk:dokkaHtml/release" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="-identity-verification.html"><span>Identity</span><wbr></wbr><span><span>Verification</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1665541573%2FConstructors%2F-704981952"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sparsa_mobile_sdk:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">constructor</span><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">id<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">organizationId<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html">Int</a><span class="token punctuation">, </span></span><span class="parameter ">identityVerificationIdentifier<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">createdDate<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">updatedDate<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">deletedDate<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null<span class="token punctuation">, </span></span><span class="parameter ">identityVerifierConfigs<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../-identity-verifier-config-model/index.html">IdentityVerifierConfigModel</a><span class="token operator">&gt;</span><span class="token operator">?</span><span class="token operator"> = </span>null</span></span><span class="token punctuation">)</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="PROPERTY">
+        <h2 class="">Properties</h2>
+        <div class="table"><a data-name="1947605524%2FProperties%2F-704981952" anchor-label="containsHomomorphicAuthentication" id="1947605524%2FProperties%2F-704981952" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release"></a>
+          <div class="table-row" data-togglable="EXTENSION_PROPERTY" data-filterable-current=":sparsa_mobile_sdk:dokkaHtml/release" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../contains-homomorphic-authentication.html"><span>contains</span><wbr></wbr><span>Homomorphic</span><wbr></wbr><span><span>Authentication</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1947605524%2FProperties%2F-704981952"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sparsa_mobile_sdk:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html">IdentityVerification</a><span class="token punctuation">.</span><a href="../contains-homomorphic-authentication.html">containsHomomorphicAuthentication</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1321489846%2FProperties%2F-704981952" anchor-label="containsIdentityDocumentAuthentication" id="1321489846%2FProperties%2F-704981952" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release"></a>
+          <div class="table-row" data-togglable="EXTENSION_PROPERTY" data-filterable-current=":sparsa_mobile_sdk:dokkaHtml/release" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../contains-identity-document-authentication.html"><span>contains</span><wbr></wbr><span>Identity</span><wbr></wbr><span>Document</span><wbr></wbr><span><span>Authentication</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1321489846%2FProperties%2F-704981952"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sparsa_mobile_sdk:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html">IdentityVerification</a><span class="token punctuation">.</span><a href="../contains-identity-document-authentication.html">containsIdentityDocumentAuthentication</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="500983974%2FProperties%2F-704981952" anchor-label="containsSymphonictKey" id="500983974%2FProperties%2F-704981952" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release"></a>
+          <div class="table-row" data-togglable="EXTENSION_PROPERTY" data-filterable-current=":sparsa_mobile_sdk:dokkaHtml/release" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../contains-symphonict-key.html"><span>contains</span><wbr></wbr><span>Symphonict</span><wbr></wbr><span><span>Key</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="500983974%2FProperties%2F-704981952"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sparsa_mobile_sdk:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html">IdentityVerification</a><span class="token punctuation">.</span><a href="../contains-symphonict-key.html">containsSymphonictKey</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1396616045%2FProperties%2F-704981952" anchor-label="containsSymponictAuthentication" id="1396616045%2FProperties%2F-704981952" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release"></a>
+          <div class="table-row" data-togglable="EXTENSION_PROPERTY" data-filterable-current=":sparsa_mobile_sdk:dokkaHtml/release" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../contains-symponict-authentication.html"><span>contains</span><wbr></wbr><span>Symponict</span><wbr></wbr><span><span>Authentication</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1396616045%2FProperties%2F-704981952"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sparsa_mobile_sdk:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html">IdentityVerification</a><span class="token punctuation">.</span><a href="../contains-symponict-authentication.html">containsSymponictAuthentication</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-216828064%2FProperties%2F-704981952" anchor-label="createdDate" id="-216828064%2FProperties%2F-704981952" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":sparsa_mobile_sdk:dokkaHtml/release" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="created-date.html"><span>created</span><wbr></wbr><span><span>Date</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-216828064%2FProperties%2F-704981952"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sparsa_mobile_sdk:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="created-date.html">createdDate</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-779206705%2FProperties%2F-704981952" anchor-label="deletedDate" id="-779206705%2FProperties%2F-704981952" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":sparsa_mobile_sdk:dokkaHtml/release" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="deleted-date.html"><span>deleted</span><wbr></wbr><span><span>Date</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-779206705%2FProperties%2F-704981952"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sparsa_mobile_sdk:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="deleted-date.html">deletedDate</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-805903964%2FProperties%2F-704981952" anchor-label="getHomorphicThresholdLevel" id="-805903964%2FProperties%2F-704981952" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release"></a>
+          <div class="table-row" data-togglable="EXTENSION_PROPERTY" data-filterable-current=":sparsa_mobile_sdk:dokkaHtml/release" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../get-homorphic-threshold-level.html"><span>get</span><wbr></wbr><span>Homorphic</span><wbr></wbr><span>Threshold</span><wbr></wbr><span><span>Level</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-805903964%2FProperties%2F-704981952"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sparsa_mobile_sdk:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html">IdentityVerification</a><span class="token punctuation">.</span><a href="../get-homorphic-threshold-level.html">getHomorphicThresholdLevel</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1621167799%2FProperties%2F-704981952" anchor-label="id" id="-1621167799%2FProperties%2F-704981952" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":sparsa_mobile_sdk:dokkaHtml/release" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="id.html"><span><span>id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1621167799%2FProperties%2F-704981952"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sparsa_mobile_sdk:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="id.html">id</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-137036734%2FProperties%2F-704981952" anchor-label="identityVerificationIdentifier" id="-137036734%2FProperties%2F-704981952" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":sparsa_mobile_sdk:dokkaHtml/release" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="identity-verification-identifier.html"><span>identity</span><wbr></wbr><span>Verification</span><wbr></wbr><span><span>Identifier</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-137036734%2FProperties%2F-704981952"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sparsa_mobile_sdk:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="identity-verification-identifier.html">identityVerificationIdentifier</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="34284889%2FProperties%2F-704981952" anchor-label="identityVerifierConfigs" id="34284889%2FProperties%2F-704981952" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":sparsa_mobile_sdk:dokkaHtml/release" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="identity-verifier-configs.html"><span>identity</span><wbr></wbr><span>Verifier</span><wbr></wbr><span><span>Configs</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="34284889%2FProperties%2F-704981952"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sparsa_mobile_sdk:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="identity-verifier-configs.html">identityVerifierConfigs</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-list/index.html">List</a><span class="token operator">&lt;</span><a href="../-identity-verifier-config-model/index.html">IdentityVerifierConfigModel</a><span class="token operator">&gt;</span><span class="token operator">?</span><span class="token operator"> = </span>null</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1837502870%2FProperties%2F-704981952" anchor-label="organizationId" id="1837502870%2FProperties%2F-704981952" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":sparsa_mobile_sdk:dokkaHtml/release" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="organization-id.html"><span>organization</span><wbr></wbr><span><span>Id</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1837502870%2FProperties%2F-704981952"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sparsa_mobile_sdk:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="organization-id.html">organizationId</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-int/index.html">Int</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-964831722%2FProperties%2F-704981952" anchor-label="skipIdentityDocumentAuthentication" id="-964831722%2FProperties%2F-704981952" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release"></a>
+          <div class="table-row" data-togglable="EXTENSION_PROPERTY" data-filterable-current=":sparsa_mobile_sdk:dokkaHtml/release" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../skip-identity-document-authentication.html"><span>skip</span><wbr></wbr><span>Identity</span><wbr></wbr><span>Document</span><wbr></wbr><span><span>Authentication</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-964831722%2FProperties%2F-704981952"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sparsa_mobile_sdk:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="index.html">IdentityVerification</a><span class="token punctuation">.</span><a href="../skip-identity-document-authentication.html">skipIdentityDocumentAuthentication</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="347351661%2FProperties%2F-704981952" anchor-label="updatedDate" id="347351661%2FProperties%2F-704981952" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":sparsa_mobile_sdk:dokkaHtml/release" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="updated-date.html"><span>updated</span><wbr></wbr><span><span>Date</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="347351661%2FProperties%2F-704981952"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sparsa_mobile_sdk:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">val </span><a href="updated-date.html">updatedDate</a><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="token operator"> = </span>null</div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div data-togglable="EXTENSION_FUNCTION">
+        <h2 class="">Functions</h2>
+        <div class="table"><a data-name="-60411996%2FFunctions%2F-704981952" anchor-label="getImageFromTemplate" id="-60411996%2FFunctions%2F-704981952" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":sparsa_mobile_sdk:dokkaHtml/release" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../get-image-from-template.html"><span>get</span><wbr></wbr><span>Image</span><wbr></wbr><span>From</span><wbr></wbr><span><span>Template</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-60411996%2FFunctions%2F-704981952"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sparsa_mobile_sdk:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="index.html">IdentityVerification</a><span class="token punctuation">.</span><a href="../get-image-from-template.html"><span class="token function">getImageFromTemplate</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">templateData<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="-1286866102%2FFunctions%2F-704981952" anchor-label="getThresholdLevelType" id="-1286866102%2FFunctions%2F-704981952" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":sparsa_mobile_sdk:dokkaHtml/release" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../get-threshold-level-type.html"><span>get</span><wbr></wbr><span>Threshold</span><wbr></wbr><span>Level</span><wbr></wbr><span><span>Type</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1286866102%2FFunctions%2F-704981952"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sparsa_mobile_sdk:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="index.html">IdentityVerification</a><span class="token punctuation">.</span><a href="../get-threshold-level-type.html"><span class="token function">getThresholdLevelType</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">level<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-threshold-level-type/index.html">ThresholdLevelType</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="1947109538%2FFunctions%2F-704981952" anchor-label="hasTemplateImage" id="1947109538%2FFunctions%2F-704981952" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":sparsa_mobile_sdk:dokkaHtml/release" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../has-template-image.html"><span>has</span><wbr></wbr><span>Template</span><wbr></wbr><span><span>Image</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1947109538%2FFunctions%2F-704981952"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sparsa_mobile_sdk:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="index.html">IdentityVerification</a><span class="token punctuation">.</span><a href="../has-template-image.html"><span class="token function">hasTemplateImage</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">templateData<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+<a data-name="300468634%2FFunctions%2F-704981952" anchor-label="skipHomomorphicAuthentication" id="300468634%2FFunctions%2F-704981952" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release"></a>
+          <div class="table-row" data-filterable-current=":sparsa_mobile_sdk:dokkaHtml/release" data-filterable-set=":sparsa_mobile_sdk:dokkaHtml/release">
+            <div class="main-subrow keyValue ">
+              <div class=""><span class="inline-flex">
+                  <div><a href="../skip-homomorphic-authentication.html"><span>skip</span><wbr></wbr><span>Homomorphic</span><wbr></wbr><span><span>Authentication</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="300468634%2FFunctions%2F-704981952"></span>
+                    <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                  </span></span></div>
+              <div>
+                <div class="title">
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":sparsa_mobile_sdk:dokkaHtml/release"><div class="symbol monospace"><span class="token keyword">fun </span><a href="index.html">IdentityVerification</a><span class="token punctuation">.</span><a href="../skip-homomorphic-authentication.html"><span class="token function">skipHomomorphicAuthentication</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">templateData<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin.collections/-map/index.html">Map</a><span class="token operator">&lt;</span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-any/index.html">Any</a><span class="token operator">&gt;</span><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin-stdlib/kotlin/-boolean/index.html">Boolean</a></div></div></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2025 Copyright</span><span
+                class="pull-right"><span>Generated by </span><a
+                href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

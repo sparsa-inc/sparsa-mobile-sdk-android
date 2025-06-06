@@ -1,0 +1,23 @@
+$dokka.format:html-v1
+$dokka.linkExtension:html
+$dokka.location:com.sparsa.android.sdk.sparsa_sdk////PointingToDeclaration/-sparsa-mobile/com.sparsa.android.sdk.sparsa_sdk/index.html
+$dokka.location:com.sparsa.android.sdk.sparsa_sdk/SparsaMobile///PointingToDeclaration/-sparsa-mobile/com.sparsa.android.sdk.sparsa_sdk/-sparsa-mobile/index.html
+$dokka.location:com.sparsa.android.sdk.sparsa_sdk/SparsaMobile/acceptProof/#kotlin.String#kotlin.String/PointingToDeclaration/-sparsa-mobile/com.sparsa.android.sdk.sparsa_sdk/-sparsa-mobile/accept-proof.html
+$dokka.location:com.sparsa.android.sdk.sparsa_sdk/SparsaMobile/checkBootstrappingStatus/#kotlin.String/PointingToDeclaration/-sparsa-mobile/com.sparsa.android.sdk.sparsa_sdk/-sparsa-mobile/check-bootstrapping-status.html
+$dokka.location:com.sparsa.android.sdk.sparsa_sdk/SparsaMobile/configure/#androidx.appcompat.app.AppCompatActivity#[Error type: Unresolved type for APIConfig]#kotlin.String#kotlin.String/PointingToDeclaration/-sparsa-mobile/com.sparsa.android.sdk.sparsa_sdk/-sparsa-mobile/configure.html
+$dokka.location:com.sparsa.android.sdk.sparsa_sdk/SparsaMobile/deleteDevice/#kotlin.String#kotlin.Function1[kotlin.Boolean,kotlin.Unit]/PointingToDeclaration/-sparsa-mobile/com.sparsa.android.sdk.sparsa_sdk/-sparsa-mobile/delete-device.html
+$dokka.location:com.sparsa.android.sdk.sparsa_sdk/SparsaMobile/deviceBootstrappingVerification/#/PointingToDeclaration/-sparsa-mobile/com.sparsa.android.sdk.sparsa_sdk/-sparsa-mobile/device-bootstrapping-verification.html
+$dokka.location:com.sparsa.android.sdk.sparsa_sdk/SparsaMobile/getCredentialDetails/#kotlin.String/PointingToDeclaration/-sparsa-mobile/com.sparsa.android.sdk.sparsa_sdk/-sparsa-mobile/get-credential-details.html
+$dokka.location:com.sparsa.android.sdk.sparsa_sdk/SparsaMobile/getCredentials/#/PointingToDeclaration/-sparsa-mobile/com.sparsa.android.sdk.sparsa_sdk/-sparsa-mobile/get-credentials.html
+$dokka.location:com.sparsa.android.sdk.sparsa_sdk/SparsaMobile/getDevices/#/PointingToDeclaration/-sparsa-mobile/com.sparsa.android.sdk.sparsa_sdk/-sparsa-mobile/get-devices.html
+$dokka.location:com.sparsa.android.sdk.sparsa_sdk/SparsaMobile/getLanguage/#/PointingToDeclaration/-sparsa-mobile/com.sparsa.android.sdk.sparsa_sdk/-sparsa-mobile/get-language.html
+$dokka.location:com.sparsa.android.sdk.sparsa_sdk/SparsaMobile/handleNotification/#android.os.Bundle?#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/-sparsa-mobile/com.sparsa.android.sdk.sparsa_sdk/-sparsa-mobile/handle-notification.html
+$dokka.location:com.sparsa.android.sdk.sparsa_sdk/SparsaMobile/handleNotification/#kotlin.collections.Map[kotlin.String,kotlin.String]#kotlin.Function0[kotlin.Unit]/PointingToDeclaration/-sparsa-mobile/com.sparsa.android.sdk.sparsa_sdk/-sparsa-mobile/handle-notification.html
+$dokka.location:com.sparsa.android.sdk.sparsa_sdk/SparsaMobile/rejectProof/#kotlin.String/PointingToDeclaration/-sparsa-mobile/com.sparsa.android.sdk.sparsa_sdk/-sparsa-mobile/reject-proof.html
+$dokka.location:com.sparsa.android.sdk.sparsa_sdk/SparsaMobile/sendRecoveryEmail/#kotlin.String/PointingToDeclaration/-sparsa-mobile/com.sparsa.android.sdk.sparsa_sdk/-sparsa-mobile/send-recovery-email.html
+$dokka.location:com.sparsa.android.sdk.sparsa_sdk/SparsaMobile/setLanguage/#kotlin.String/PointingToDeclaration/-sparsa-mobile/com.sparsa.android.sdk.sparsa_sdk/-sparsa-mobile/set-language.html
+$dokka.location:com.sparsa.android.sdk.sparsa_sdk/SparsaMobile/setRecoveryEmail/#kotlin.String/PointingToDeclaration/-sparsa-mobile/com.sparsa.android.sdk.sparsa_sdk/-sparsa-mobile/set-recovery-email.html
+$dokka.location:com.sparsa.android.sdk.sparsa_sdk/SparsaMobile/startCredentialVerificationProcess/#kotlin.String/PointingToDeclaration/-sparsa-mobile/com.sparsa.android.sdk.sparsa_sdk/-sparsa-mobile/start-credential-verification-process.html
+$dokka.location:com.sparsa.android.sdk.sparsa_sdk/SparsaMobile/updateDeviceToken/#kotlin.String/PointingToDeclaration/-sparsa-mobile/com.sparsa.android.sdk.sparsa_sdk/-sparsa-mobile/update-device-token.html
+com.sparsa.android.sdk.sparsa_sdk
+
