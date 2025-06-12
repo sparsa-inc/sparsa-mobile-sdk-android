@@ -2,7 +2,7 @@
 
 ## Overview
 The Sparsa Mobile SDK for Android provides a comprehensive set of tools for integrating Sparsa's identity verification and authentication services into your Android application.
-For SDK Developer API refer [here](https://sparsa-inc.github.io/sparsa-mobile-sdk-android/-sparsa-mobile)
+For SDK Developer API refer [here](https://sparsa-inc.github.io/sparsa-mobile-sdk-android/).
 ## Key Features
 - Secure identity verification
 - Biometric authentication
