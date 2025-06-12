@@ -53,7 +53,7 @@ Where:
 
 The SDK provides several key methods for user authentication and identity verification:
 
-There are two options, suspending function and with completion blocks
+There are two options, suspending function and with completion blocks.
 
 1. **User Authentication**:
    ```kotlin
