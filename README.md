@@ -53,8 +53,9 @@ Where:
 
 The SDK provides several key methods for user authentication and identity verification:
 
+There are two options, suspending function and with completion blocks
+
 1. **User Authentication**:
-   There are two options, suspending function and with completion blocks
    ```kotlin
    suspend fun authenticateUser(attributes: String): UserAuthenticationModel
    fun authenticateUser(attributes: String, completion: (Result<UserAuthenticationModel>)
