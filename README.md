@@ -54,14 +54,17 @@ Where:
 The SDK provides several key methods for user authentication and identity verification:
 
 1. **User Authentication**:
+   There are two options, suspending function and with completion blocks
    ```kotlin
    suspend fun authenticateUser(attributes: String): UserAuthenticationModel
+   fun authenticateUser(attributes: String, completion: (Result<UserAuthenticationModel>)
    ```
    Imports a digital address using the QR code or AppLink sent with a recovery email.
 
-2. **User Registration**:
+3. **User Registration**:
    ```kotlin
    suspend fun registerUser(attributes: String): UserAuthenticationModel
+   fun registerUser(attributes: String, completion: (Result<UserAuthenticationModel>)
    ```
    Imports digital address using a QR code or AppLink.
 
