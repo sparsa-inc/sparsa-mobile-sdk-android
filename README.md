@@ -12,9 +12,9 @@ For SDK Developer API refer [here](https://sparsa-inc.github.io/sparsa-mobile-sd
 ## Getting Started
 
 ### Prerequisites
-- Android Studio 4.0 or higher
-- Android SDK 31 or higher
-- Kotlin 1.8 or higher
+- [Android Studio](https://developer.android.com/studio) or [IntelliJ IDEA](https://www.jetbrains.com/idea/) with the latest versions
+- [Android SDK 31](https://developer.android.com/tools/releases/platforms) or higher
+- [Kotlin 1.9.24](https://kotlinlang.org/) or higher
 
 ### Installation
 Add the Sparsa Mobile SDK to your project by including it in your app's `build.gradle` file:
