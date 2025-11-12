@@ -1,0 +1,18 @@
+<resources>
+    <!--
+        Base application theme, dependent on API level. This theme is replaced
+        by AppBaseTheme from res/values-vXX/styles.xml on newer devices.
+    -->
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar"/>
+
+    <!-- Application theme. -->
+    <style name="AppTheme" parent="AppBaseTheme">
+        <item name="colorPrimary">@android:color/white</item>
+        <item name="colorPrimaryDark">@android:color/transparent</item>
+        <item name="toolbarStyle">@style/ToolbarStyle</item>
+    </style>
+    <style name="ToolbarStyle" parent="Widget.AppCompat.Light.ActionBar.Solid">
+        <item name="android:elevation">0dp</item>
+        <item name="android:background">@android:color/white</item> <!-- Optional: Ensure background is white -->
+    </style>
+</resources>
