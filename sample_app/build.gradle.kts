@@ -92,8 +92,7 @@ configurations.all {
 }
 
 dependencies {
-    // Sparsa Mobile SDK from JitPack
-    implementation("com.github.sparsa-inc:sparsa-mobile-sdk-android:1.0.0")
+    implementation(files("../sparsa_mobile_sdk/build/outputs/aar/sparsa_mobile_sdk-release.aar"))
 
     implementation(platform(libs.compose.bom))
     implementation(libs.bundles.compose)
