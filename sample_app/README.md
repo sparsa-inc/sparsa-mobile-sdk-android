@@ -1,122 +1,57 @@
-# SparsaMobile Sample App
+# Sparsa SDK - Sample App
 
-This is a sample Android application demonstrating how to integrate and use the SparsaMobile SDK with manual AAR integration.
+A sample Android application demonstrating how to integrate and use the Sparsa SDK.
 
-## Prerequisites
+## Requirements
 
-- Android SDK 31 or higher
-- Android Studio or IntelliJ IDEA with the latest versions
-- Kotlin 1.9.24 or higher
+- Android SDK 31+
+- Android Studio or IntelliJ IDEA
+- Kotlin 1.9.24+
 
-## Setup Instructions
+## Setup
 
 ### 1. Download the AAR
 
-Download the latest version of `sparsa-mobile-sdk.aar` from the [GitHub Releases](https://github.com/sparsa-inc/sparsa-mobile-sdk-android/releases) page.
-
-1. Go to the Releases page
-2. Download `sparsa-mobile-sdk.aar` from the latest release
-3. Copy the AAR file
+Download the latest `sparsa-mobile-sdk-fat.aar` from the [Releases](https://github.com/sparsa-inc/sparsa-mobile-sdk-android/releases) page.
 
 ### 2. Add AAR to the Project
 
-1. Open the project in Android Studio
-2. Navigate to `sample_app/libs/` folder (create it if it doesn't exist)
-3. Paste the `sparsa-mobile-sdk.aar` file into the `libs` folder
-4. Sync the project with Gradle files
+1. Place the downloaded AAR file into the `sample_app/libs/` folder
+2. Sync the project with Gradle files
 
-### 3. Configure Dependencies
+### 3. Configure Credentials
 
-The `build.gradle.kts` should already include the AAR dependency:
+Update the SDK configuration in `ContentViewModel.kt` with your API credentials:
 
 ```kotlin
-dependencies {
-    implementation(files("libs/sparsa-mobile-sdk.aar"))
-    // ... other dependencies
-}
-```
-
-### 4. Build and Run
-
-1. Connect your Android device or start an emulator
-2. Click "Run" in Android Studio or use:
-   ```bash
-   ./gradlew assembleDebug
-   ```
-3. Install and run the app
-
-## Project Structure
-
-```
-sample_app/
-├── src/
-│   └── main/
-│       ├── java/com/sparsa/sample/  # Sample app code
-│       ├── res/                      # Resources
-│       └── AndroidManifest.xml       # App manifest
-└── build.gradle.kts                  # Build configuration
-```
-
-## Configuration
-
-Before running the app, you'll need to configure the SDK with your API credentials. Update the configuration in your app initialization code:
-
-```kotlin
-SparsaMobile.configure(
+Sparsa.configure(
     activity = activity,
-    url = "BASE_URL",
+    url = "https://api.<environment>.sparsainc.com",
     clientId = "your-client-id",
-    clientSecret = "your-client-secret"
+    clientSecret = "your-client-secret",
+    onDelete = { }
 )
 ```
 
-## Required Permissions
+### 4. Push Notifications (Optional)
 
-The sample app requires the following permissions (already included in `AndroidManifest.xml`):
+To test push notification handling, add your `google-services.json` file to the `sample_app/` directory and configure Firebase Cloud Messaging.
 
-```xml
-<uses-permission android:name="android.permission.INTERNET" />
-<uses-permission android:name="android.permission.CAMERA" />
-<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-<uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
-```
+### 5. Build and Run
+
+1. Connect an Android device or start an emulator
+2. Click **Run** in Android Studio or use:
+   ```bash
+   ./gradlew assembleDebug
+   ```
 
 ## Features Demonstrated
 
 - SDK initialization and configuration
-- User authentication flows
-- Credential management
-- Identity verification
-- QR code scanning
-
-## Dependencies
-
-This sample app uses the thin AAR distribution method. All required SDK dependencies are explicitly declared in `build.gradle.kts`.
-
-See the `dependencies` section in `build.gradle.kts` for the complete list of required libraries.
-
-## Troubleshooting
-
-### Build Errors
-
-If you encounter build errors after adding the AAR:
-
-1. Clean the project: `Build > Clean Project`
-2. Rebuild: `Build > Rebuild Project`
-3. Invalidate caches and restart: `File > Invalidate Caches / Restart`
-
-### AAR Not Found
-
-If you see "AAR not found" errors:
-
-1. Verify the AAR file exists in `sample_app/libs/`
-2. Check that the file name matches in `build.gradle.kts`
-3. Sync Gradle files
-
-## Documentation
-
-For detailed API documentation, visit the [official documentation](https://sparsa-inc.github.io/sparsa-mobile-sdk-android/documentation).
-
-## Support
-
-For issues and questions, please refer to the main [SparsaMobile SDK repository](https://github.com/sparsa-inc/sparsa-mobile-sdk-android).
+- Digital address import and recovery
+- Credential management and filtering
+- Credential verification (proof) process
+- Device management (list, delete)
+- Device bootstrapping via QR code
+- Language settings
+- Recovery email management

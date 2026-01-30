@@ -37,7 +37,7 @@ class ContentViewModel: ViewModel() {
         var secret: String = ""
     )
 
-    private val baseURL = "https://exchange-api.prod.sparsainc.com"
+    private val baseURL = "BASE_URL"
 
     private val gson = GsonBuilder().setPrettyPrinting().create()
     private var sharedPreferences: SharedPreferences? = null
