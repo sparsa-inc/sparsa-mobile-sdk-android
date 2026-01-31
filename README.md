@@ -11,41 +11,55 @@ The Sparsa SDK for Android provides a native interface for managing digital iden
 
 ## Installation
 
-### Download the AAR
+### GitHub Packages (Recommended)
 
-Download the latest AAR from the [Releases](https://github.com/sparsa-inc/sparsa-mobile-sdk-android/releases) page.
+Add the GitHub Packages Maven repository and the SDK dependency to your project:
 
-**Two versions available:**
-- **Fat AAR** (~107 MB) — All dependencies bundled (recommended for simplicity)
-- **Regular AAR** (~38 MB) — Requires you to add dependencies manually
+1. In your project-level `settings.gradle.kts`, add the repository:
+   ```kotlin
+   dependencyResolutionManagement {
+       repositories {
+           google()
+           mavenCentral()
+           maven {
+               url = uri("https://maven.pkg.github.com/sparsa-inc/sparsa-mobile-sdk-android")
+               credentials {
+                   username = providers.gradleProperty("gpr.user").orNull
+                       ?: System.getenv("GITHUB_USERNAME")
+                   password = providers.gradleProperty("gpr.token").orNull
+                       ?: System.getenv("GITHUB_TOKEN")
+               }
+           }
+       }
+   }
+   ```
 
-#### Option 1: Using Fat AAR (Recommended)
+2. Add your GitHub credentials to `~/.gradle/gradle.properties`:
+   ```properties
+   gpr.user=YOUR_GITHUB_USERNAME
+   gpr.token=YOUR_GITHUB_PERSONAL_ACCESS_TOKEN
+   ```
+   The token needs the `read:packages` scope.
 
-1. Download `sparsa-mobile-sdk-fat.aar` from the latest release
+3. Add the dependency in your app's `build.gradle.kts`:
+   ```kotlin
+   dependencies {
+       implementation("com.sparsainc.sdk:sparsa-android:1.1.0")
+   }
+   ```
+
+All transitive dependencies are resolved automatically.
+
+### Manual Installation (AAR)
+
+Alternatively, download the latest AAR from the [Releases](https://github.com/sparsa-inc/sparsa-mobile-sdk-android/releases) page.
+
+1. Download `sparsa-mobile-sdk.aar` from the latest release
 2. Add the AAR to your project's `libs` folder
 3. Add the dependency in your app's `build.gradle.kts`:
    ```kotlin
    dependencies {
-       implementation(files("libs/sparsa-mobile-sdk-fat.aar"))
-   }
-   ```
-
-#### Option 2: Using Regular AAR
-
-1. Download `sparsa-mobile-sdk.aar` from the latest release
-2. Add the AAR to your project's `libs` folder
-3. Add the dependencies in your app's `build.gradle.kts`:
-   ```kotlin
-   dependencies {
        implementation(files("libs/sparsa-mobile-sdk.aar"))
-
-       // Required dependencies
-       implementation("io.ktor:ktor-client-core:2.3.12")
-       implementation("io.ktor:ktor-client-android:2.3.12")
-       implementation("io.ktor:ktor-client-content-negotiation:2.3.12")
-       implementation("io.ktor:ktor-serialization-kotlinx-json:2.3.12")
-       implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.6.2")
-       implementation("com.fasterxml.jackson.module:jackson-module-kotlin:2.13.4")
    }
    ```
 
