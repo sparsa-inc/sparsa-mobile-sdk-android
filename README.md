@@ -44,7 +44,7 @@ Add the GitHub Packages Maven repository and the SDK dependency to your project:
 3. Add the dependency in your app's `build.gradle.kts`:
    ```kotlin
    dependencies {
-       implementation("com.sparsainc.sdk:sparsa-android:1.1.0")
+       implementation("com.sparsainc.sdk:sparsa-android:1.1.1")
    }
    ```
 
