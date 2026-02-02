@@ -2,6 +2,7 @@
 
 The Sparsa SDK for Android provides a native interface for managing digital identities, credentials, devices, and authentication flows on the Sparsa platform.
 
+[API Reference](https://sparsa-inc.github.io/sparsa-mobile-sdk-android)
 
 ## Requirements
 
