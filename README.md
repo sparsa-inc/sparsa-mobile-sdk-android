@@ -206,8 +206,7 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 
 ## Documentation
 
-Full API reference is available at:
-[https://sparsa-inc.github.io/sparsa-mobile-sdk-android/sdk/com.sparsainc.sdk.sparsa/-sparsa/index.html](https://sparsa-inc.github.io/sparsa-mobile-sdk-android/sdk/com.sparsainc.sdk.sparsa/-sparsa/index.html)
+Full API reference is available [here](https://sparsa-inc.github.io/sparsa-mobile-sdk-android).
 
 ## Sample App
 
