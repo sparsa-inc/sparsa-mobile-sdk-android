@@ -204,6 +204,11 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 | `sendRecoveryEmail(email)` | Send a recovery email. |
 | `setRecoveryEmail(email)` | Set a new recovery email. |
 
+## Documentation
+
+Full API reference is available at:
+[https://sparsa-inc.github.io/sparsa-mobile-sdk-android/sdk/com.sparsainc.sdk.sparsa/-sparsa/index.html](https://sparsa-inc.github.io/sparsa-mobile-sdk-android/sdk/com.sparsainc.sdk.sparsa/-sparsa/index.html)
+
 ## Sample App
 
 For a complete working example, see the [sample app](./sample_app/) included in this repository.
