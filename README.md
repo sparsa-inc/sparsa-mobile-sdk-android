@@ -64,6 +64,10 @@ Alternatively, download the latest AAR from the [Releases](https://github.com/sp
    }
    ```
 
+## Getting Started
+
+For a visual walkthrough of how to set up your tenant, generate a client ID and secret from the console, see the [Getting Started Guide](https://sparsa-inc.github.io/sparsa-mobile-sdk-ios/documentation/sparsa/sparsamobile). The setup process is the same for both iOS and Android.
+
 ## Quick Start
 
 ### 1. Import the SDK
