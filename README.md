@@ -12,7 +12,7 @@ The Sparsa SDK for Android provides a native interface for managing digital iden
 
 ## Installation
 
-### GitHub Packages (Recommended)
+### GitHub Packages
 
 Add the GitHub Packages Maven repository and the SDK dependency to your project:
 
@@ -51,19 +51,6 @@ Add the GitHub Packages Maven repository and the SDK dependency to your project:
 
 All transitive dependencies are resolved automatically.
 
-### Manual Installation (AAR)
-
-Alternatively, download the latest AAR from the [Releases](https://github.com/sparsa-inc/sparsa-mobile-sdk-android/releases) page.
-
-1. Download `sparsa-mobile-sdk.aar` from the latest release
-2. Add the AAR to your project's `libs` folder
-3. Add the dependency in your app's `build.gradle.kts`:
-   ```kotlin
-   dependencies {
-       implementation(files("libs/sparsa-mobile-sdk.aar"))
-   }
-   ```
-
 ## Getting Started
 
 For a visual walkthrough of how to set up your tenant, generate a client ID and secret from the console, see the [Getting Started Guide](https://sparsa-inc.github.io/sparsa-mobile-sdk-ios/documentation/sparsa/sparsamobile). The setup process is the same for both iOS and Android.
@@ -83,7 +70,7 @@ Before using any SDK functionality, configure it with your tenant credentials:
 ```kotlin
 Sparsa.configure(
     activity = activity,
-    url = "https://api.<environment>.sparsainc.com",
+    url = "BASE_URL",
     clientId = "your-client-id",
     clientSecret = "your-client-secret",
     onDelete = {
