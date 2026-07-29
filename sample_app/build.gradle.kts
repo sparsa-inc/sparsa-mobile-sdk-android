@@ -1,9 +1,22 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.compose.compiler)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.google.services)
 }
+
+val keystoreFile: File = file(System.getenv("KEYSTORE") ?: "upload-keystore.jks")
+
+val keystoreProperties: Properties? = file("keystore.properties")
+    .takeIf { it.exists() }
+    ?.let { f -> Properties().apply { f.inputStream().use(::load) } }
+
+fun signingValue(property: String, environmentVariable: String): String? =
+    keystoreProperties?.getProperty(property) ?: System.getenv(environmentVariable)
+
+val hasSigningKeystore: Boolean = keystoreFile.exists()
 
 android {
     namespace = "com.sparsa.android"
@@ -17,10 +30,23 @@ android {
         versionName = "1.0.0"
     }
 
+    signingConfigs {
+        if (hasSigningKeystore) {
+            create("sparsa") {
+                storeFile = keystoreFile
+                storePassword = signingValue("storePassword", "KEYSTORE_PASSWORD")
+                keyAlias = signingValue("keyAlias", "KEYSTORE_ALIAS")
+                keyPassword = signingValue("keyPassword", "KEYSTORE_KEY_PASSWORD")
+                    ?: signingValue("storePassword", "KEYSTORE_PASSWORD")
+            }
+        }
+    }
+
     buildTypes {
         debug {
             isDebuggable = true
             isMinifyEnabled = false
+            signingConfigs.findByName("sparsa")?.let { signingConfig = it }
         }
         release {
             isDebuggable = false
@@ -29,6 +55,7 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+            signingConfigs.findByName("sparsa")?.let { signingConfig = it }
         }
     }
 
@@ -59,7 +86,7 @@ android {
 
 dependencies {
     // Sparsa SDK
-    implementation("com.sparsainc.sdk:sparsa-android:1.1.5")
+    implementation("com.sparsainc.sdk:sparsa-android:1.1.12")
 
     // Compose
     implementation(platform(libs.compose.bom))

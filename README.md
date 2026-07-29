@@ -7,7 +7,7 @@ The Sparsa SDK for Android provides a native interface for managing digital iden
 ## Requirements
 
 - Android SDK 31+
-- Kotlin 1.9.24+
+- Kotlin 2.2+
 - Android Studio or IntelliJ IDEA
 
 ## Installation
@@ -45,7 +45,7 @@ Add the GitHub Packages Maven repository and the SDK dependency to your project:
 3. Add the dependency in your app's `build.gradle.kts`:
    ```kotlin
    dependencies {
-       implementation("com.sparsainc.sdk:sparsa-android:1.1.5")
+       implementation("com.sparsainc.sdk:sparsa-android:1.1.12")
    }
    ```
 
@@ -195,6 +195,100 @@ class MyFirebaseMessagingService : FirebaseMessagingService() {
 | `setLanguage(language)` | Set the SDK language. |
 | `sendRecoveryEmail(email)` | Send a recovery email. |
 | `setRecoveryEmail(email)` | Set a new recovery email. |
+
+## App Signing and FIDO Registration
+
+FIDO authentication identifies your app by its **signing certificate**, not by its
+`applicationId`. At runtime the SDK derives an origin of the form:
+
+```
+android:apk-key-hash-sha256:<Base64( SHA-256( signing certificate ) )>
+```
+
+Sparsa must have that value registered before FIDO registration or authentication will
+succeed. Two consequences follow, and both surprise teams:
+
+- **Changing the signing key changes the app identity.** Debug, staging and release builds of
+  the same `applicationId` are three different identities if they are signed with three
+  different keys.
+- **The default debug keystore is per-machine.** Android Studio generates
+  `~/.android/debug.keystore` locally the first time it is needed, so every developer's debug
+  build has a *different* certificate. A fingerprint registered for one laptop does nothing for
+  another, and FIDO will fail on every machine except the one that was registered.
+
+### Reading your fingerprint
+
+For any keystore and alias:
+
+```bash
+keytool -exportcert -alias <alias> -keystore <path-to-keystore> -storepass <store-password> \
+  | openssl dgst -sha256 -binary | openssl base64
+```
+
+For the default debug keystore, the alias and passwords are always the same:
+
+```bash
+keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore \
+  -storepass android -keypass android | openssl dgst -sha256 -binary | openssl base64
+```
+
+The resulting Base64 string should be added in FIDO2 server environment variables. Fingerprints are derived from
+public certificates and are not secret — but never share the keystore file itself.
+
+### Recommended for teams: one shared debug keystore
+
+Rather than registering a fingerprint per developer, commit a **dedicated debug keystore** to
+your project and point the `debug` build type at it. Every machine then produces the same
+certificate, so a single fingerprint covers the whole team, CI included.
+
+1. Create the keystore once and commit it (from your project root):
+
+   ```bash
+   keytool -genkeypair -v -keystore app/debug.keystore -alias yourapp-debug \
+     -keyalg RSA -keysize 2048 -validity 10950 \
+     -storepass android -keypass android \
+     -dname "CN=YourApp Debug,O=YourOrg,C=JP"
+   ```
+
+2. Wire it into your app's `build.gradle.kts`:
+
+   ```kotlin
+   android {
+       signingConfigs {
+           getByName("debug") {
+               storeFile = file("debug.keystore")
+               storePassword = "android"
+               keyAlias = "yourapp-debug"
+               keyPassword = "android"
+           }
+       }
+   }
+   ```
+
+3. Read its fingerprint with the command above and send that one value to Sparsa.
+
+This is safe to commit: a debug keystore carries no release authority and uses the conventional
+`android` password. Never reuse it for a release build, and keep it out of any `release`
+`signingConfig`.
+
+> The sample app in this repository does **not** define a `signingConfig`, so it uses each
+> machine's own `~/.android/debug.keystore`. If more than one person will run it, apply the
+> shared-keystore setup above to `sample_app` as well.
+
+### Production builds
+
+If you publish through Google Play with **Play App Signing**, Play re-signs your app, so the
+certificate that reaches the device is *not* your upload key. Register the **app signing key**,
+found in Play Console under *Setup → App integrity → App signing key certificate*.
+
+That page shows SHA-256 as colon-separated hex. Convert it to the Base64 form the SDK uses:
+
+```bash
+echo "AB:CD:...:EF" | tr -d ':' | xxd -r -p | openssl base64
+```
+
+Registering the upload key instead is the most common cause of FIDO working in debug builds and
+failing once the app is installed from Play.
 
 ## Documentation
 
