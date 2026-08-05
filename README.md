@@ -205,8 +205,9 @@ FIDO authentication identifies your app by its **signing certificate**, not by i
 android:apk-key-hash-sha256:<Base64( SHA-256( signing certificate ) ), unpadded>
 ```
 
-Sparsa must have that value registered before FIDO registration or authentication will
-succeed. Two consequences follow, and both surprise teams:
+Your FIDO2 server must accept that origin before registration or authentication will succeed.
+You configure this yourself, in your own FIDO2 server's environment — the fingerprint is not
+something you send to Sparsa. Two consequences follow, and both surprise teams:
 
 - **Changing the signing key changes the app identity.** Debug, staging and release builds of
   the same `applicationId` are three different identities if they are signed with three
@@ -215,6 +216,32 @@ succeed. Two consequences follow, and both surprise teams:
   `~/.android/debug.keystore` locally the first time it is needed, so every developer's debug
   build has a *different* certificate. A fingerprint registered for one laptop does nothing for
   another, and FIDO will fail on every machine except the one that was registered.
+
+The whole process is three steps: create a keystore, read its fingerprint, add that fingerprint
+to your FIDO2 server's accepted origins. Then point your build at the keystore.
+
+### Creating a signing keystore
+
+Skip this if you already have the keystore you intend to ship with. `keytool` ships with the JDK:
+
+```bash
+keytool -genkeypair -v -keystore upload-keystore.jks -alias sparsa-upload \
+  -keyalg RSA -keysize 2048 -validity 10000 -storetype PKCS12 \
+  -dname "CN=<your name>, O=<your organisation>, C=<country code>"
+```
+
+`keytool` prompts for the store password, then reuses it for the key unless you set a separate
+one. Note the constraints:
+
+- **RSA 2048 or larger** — required for Google Play upload keys.
+- **`-validity 10000`** (about 27 years). Play requires the key to remain valid past
+  22 October 2033; a short validity makes the app unpublishable later.
+- **PKCS12**, not the legacy JKS format. The `.jks` extension is only a filename here — if you
+  omit `-storetype`, newer JDKs create PKCS12 anyway and warn about the mismatch.
+
+**Back this file up somewhere safe and never commit it.** Unlike a debug keystore, losing it
+means you can no longer sign updates, and the fingerprint configured on your FIDO2 server
+stops matching. Use a real password, not the conventional `android`.
 
 ### Reading your fingerprint
 
@@ -239,42 +266,70 @@ keytool -exportcert -alias androiddebugkey -keystore ~/.android/debug.keystore \
 The result is 43 characters and uses the standard Base64 alphabet — `+` and `/`, *not* the
 URL-safe `-` and `_`. Do not convert it.
 
-The resulting Base64 string should be added in FIDO2 server environment variables. Fingerprints are derived from
-public certificates and are not secret — but never share the keystore file itself.
+Add the resulting string to your FIDO2 server's environment configuration, as an accepted
+origin. The SDK transmits the origin in full:
+
+```
+android:apk-key-hash-sha256:<fingerprint>
+```
+
+so whether your server expects the bare fingerprint or the complete origin string depends on how
+its allowed-origin setting is defined — match whichever form it takes. Each signing key you
+build with needs its own entry: debug, release, and, under Play App Signing, the app signing key.
+
+Fingerprints are derived from public certificates and are not secret — but never share the
+keystore file itself.
+
+### Verifying which key Gradle is actually using
+
+`keytool` reads whatever keystore you point it at. It cannot tell you whether your *build* is
+using that keystore. `signingReport` can, and needs no passwords:
+
+```bash
+./gradlew signingReport
+```
+
+It prints one block per variant:
+
+```
+Variant: debug
+Config: debug
+Store: /Users/you/.android/debug.keystore
+Alias: AndroidDebugKey
+SHA-256: C3:F9:78:94:33:03:59:43:...:46:54:68:C4
+Valid until: Wednesday, November 3, 2055
+```
+
+Check two things:
+
+- **`Store:`** is the keystore you intended. A path ending in `~/.android/debug.keystore` when
+  you expected your own file means the keystore was not found and the build fell back to the
+  per-machine debug key — the fingerprint you configured will not match.
+- **`Config: null` / `Store: null`** means that variant has *no* signing config. On `release`
+  this is the default state of a freshly cloned `sample_app`, before you supply a keystore.
+
+`signingReport` prints SHA-256 as colon-separated hex, not Base64. Convert it with the same
+command used for Play App Signing below:
+
+```bash
+echo "C3:F9:...:C4" | tr -d ':' | xxd -r -p | openssl base64 | tr -d '='
+```
+
+This is the quickest way to answer "why is FIDO failing" — it shows the identity the build is
+really signing with, which is the thing that has to match your FIDO2 server.
 
 ### Signing the sample app
 
 `sample_app` is already wired for a dedicated keystore — you supply the file and its
 credentials, and the same config is applied to both `debug` and `release`.
 
-1. Create the keystore, if you do not already have one. `keytool` ships with the JDK:
-
-   ```bash
-   keytool -genkeypair -v -keystore upload-keystore.jks -alias sparsa-upload \
-     -keyalg RSA -keysize 2048 -validity 10000 -storetype PKCS12 \
-     -dname "CN=<your name>, O=<your organisation>, C=<country code>"
-   ```
-
-   `keytool` prompts for the store password, then reuses it for the key unless you set a
-   separate one. Note the constraints:
-
-   - **RSA 2048 or larger** — required for Google Play upload keys.
-   - **`-validity 10000`** (about 27 years). Play requires the key to remain valid past
-     22 October 2033; a short validity makes the app unpublishable later.
-   - **PKCS12**, not the legacy JKS format. The `.jks` extension is only a filename here — if
-     you omit `-storetype`, newer JDKs create PKCS12 anyway and warn about the mismatch.
-
-   **Back this file up somewhere safe and never commit it.** Unlike a debug keystore, losing it
-   means you can no longer sign updates, and the fingerprint you registered with Sparsa stops
-   matching. Use a real password, not the conventional `android`.
-
-2. Put the keystore at `sample_app/upload-keystore.jks`, or point `KEYSTORE` at it:
+1. Put the keystore at `sample_app/upload-keystore.jks`, or point `KEYSTORE` at it:
 
    ```bash
    export KEYSTORE=/absolute/path/to/upload-keystore.jks
    ```
 
-3. Supply the credentials, either as `sample_app/keystore.properties`:
+2. Supply the credentials, either as `sample_app/keystore.properties`:
 
    ```properties
    storePassword=<store-password>
@@ -293,7 +348,7 @@ credentials, and the same config is applied to both `debug` and `release`.
    `keystore.properties` takes precedence. `keyPassword` may be omitted when it matches
    `storePassword`. Both the keystore and `keystore.properties` are already in `.gitignore`.
 
-4. Register that keystore's fingerprint using the command above — but see
+3. Register that keystore's fingerprint using the command above — but see
    [Production builds](#production-builds) first if you will ship through Google Play. The name
    `upload-keystore.jks` reflects Play's terminology: with Play App Signing this key only signs
    your *upload*, and it is **not** the certificate that reaches the device.
@@ -334,7 +389,7 @@ certificate, so a single fingerprint covers the whole team, CI included.
    }
    ```
 
-3. Read its fingerprint with the command above and send that one value to Sparsa.
+3. Read its fingerprint with the command above and add that one value to your FIDO2 server.
 
 This is safe to commit: a debug keystore carries no release authority and uses the conventional
 `android` password. Never reuse it for a release build, and keep it out of any `release`
