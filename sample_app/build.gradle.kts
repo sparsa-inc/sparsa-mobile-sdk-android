@@ -86,7 +86,7 @@ android {
 
 dependencies {
     // Sparsa SDK
-    implementation("com.sparsainc.sdk:sparsa-android:1.2.1")
+    implementation("com.sparsainc.sdk:sparsa-android:1.2.4")
 
     // Compose
     implementation(platform(libs.compose.bom))

@@ -27,7 +27,7 @@ import java.lang.ref.WeakReference
 class ContentViewModel : ViewModel() {
 
     // MARK: - Properties
-    private val baseURL = "https://exchange-api.qa.sparsainc.com"
+    private val baseURL = "BASE_URL"
     internal val gson = GsonBuilder().setPrettyPrinting().create()
     internal var onStateChangeCallback: ((String) -> Unit)? = null
     private var activityRef: WeakReference<AppCompatActivity>? = null
