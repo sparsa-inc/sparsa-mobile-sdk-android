@@ -45,7 +45,7 @@ Add the GitHub Packages Maven repository and the SDK dependency to your project:
 3. Add the dependency in your app's `build.gradle.kts`:
    ```kotlin
    dependencies {
-       implementation("com.sparsainc.sdk:sparsa-android:1.2.4")
+       implementation("com.sparsainc.sdk:sparsa-android:1.2.5")
    }
    ```
 
@@ -53,7 +53,7 @@ All transitive dependencies are resolved automatically.
 
 ## Getting Started
 
-For a visual walkthrough of how to set up your tenant, generate a client ID and secret from the console, see the [Getting Started Guide](https://sparsa-inc.github.io/sparsa-mobile-sdk-ios/documentation/sparsa/sparsamobile). The setup process is the same for both iOS and Android.
+For a visual walkthrough of how to set up your tenant, generate a client ID and secret from the console, see the [Getting Started Guide](https://sparsa-inc.github.io/sparsa-mobile-sdk-ios/documentation/sparsasdk). The setup process is the same for both iOS and Android.
 
 ## Quick Start
 
