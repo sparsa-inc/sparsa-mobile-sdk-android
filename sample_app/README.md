@@ -29,7 +29,7 @@ in the [main README](../README.md#github-packages).
 
 ```kotlin
 dependencies {
-    implementation("com.sparsainc.sdk:sparsa-android:1.2.6")
+    implementation("com.sparsainc.sdk:sparsa-android:1.2.7")
 }
 ```
 
